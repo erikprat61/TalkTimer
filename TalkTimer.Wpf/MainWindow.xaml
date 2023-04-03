@@ -16,7 +16,7 @@
 
         <TextBlock x:Name="TimerTextBlock"
                Grid.Row="0"
-               FontSize="20"
+               FontSize="60"
                FontWeight="Bold"
                HorizontalAlignment="Center"
                VerticalAlignment="Center"

@@ -4,6 +4,7 @@ using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using System.Windows.Threading;
 using NAudio.CoreAudioApi;
 
@@ -45,6 +46,15 @@ public sealed partial class MainWindow : Window
     {
         _elapsedSeconds++;
         TimerTextBlock.Text = TimeSpan.FromSeconds(_elapsedSeconds).ToString(@"mm\:ss");
+
+        if (_elapsedSeconds >= 30)
+        {
+            this.Background = Brushes.Red;
+        }
+        else if (_elapsedSeconds >= 15)
+        {
+            this.Background = Brushes.Yellow;
+        }
     }
 
     private void LoadInputDevices()
@@ -89,6 +99,7 @@ public sealed partial class MainWindow : Window
                                 _timer.Stop();
                                 _elapsedSeconds = 0;
                                 TimerTextBlock.Text = "00:00";
+                                this.Background = SystemColors.WindowBrush;
                             });
                         }
                     }
