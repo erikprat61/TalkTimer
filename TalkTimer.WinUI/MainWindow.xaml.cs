@@ -138,7 +138,7 @@ public sealed partial class MainWindow : Window
 
         if (_elapsedSeconds < 10)
         {
-            TimerText.Text = "0" + _elapsedSeconds.ToString();
+            TimerText.Text = _elapsedSeconds.ToString();
         }
         else
         {
