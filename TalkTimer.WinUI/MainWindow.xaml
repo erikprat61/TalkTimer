@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Window
+    x:Class="TalkTimer.WinUI.MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid x:Name="MainGrid">
+        <StackPanel Orientation="Horizontal" Padding="10,0,0,0">
+            <TextBlock x:Name="TimerText" Text="0" FontSize="72" Width="85" FontWeight="Bold" TextAlignment="Center"/>
+            <StackPanel Orientation="Vertical" Padding="10,29,0,0">
+                <TextBlock Text="Device:" VerticalAlignment="Center" />
+                <ComboBox x:Name="InputDeviceComboBox" MaxWidth="270" SelectionChanged="InputDeviceComboBox_SelectionChanged"/>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Window>

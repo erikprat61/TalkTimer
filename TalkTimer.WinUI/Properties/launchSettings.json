@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "TalkTimer.WinUI (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "TalkTimer.WinUI (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
