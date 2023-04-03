@@ -60,10 +60,17 @@ public sealed partial class MainWindow : Window
                 await InitializeMediaCapture(inputDevices[0].Id);
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
-            // Handle exceptions as appropriate
+            // Show an alert popup with the exception message
+            var dialog = new ContentDialog
+            {
+                Title = "Error",
+                Content = $"An error occurred while loading input devices: {ex.Message}",
+                CloseButtonText = "OK"
+            };
+
+            await dialog.ShowAsync();
         }
     }
 
@@ -77,24 +84,6 @@ public sealed partial class MainWindow : Window
         };
 
         await _mediaCapture.InitializeAsync(settings);
-    }
-
-    private void MicrophoneIcon_Tapped(object sender, TappedRoutedEventArgs e)
-    {
-        try
-        {
-            if (_mediaCapture != null)
-            {
-                var audioDeviceController = _mediaCapture.AudioDeviceController;
-                bool isMuted = audioDeviceController.Muted;
-                audioDeviceController.Muted = !isMuted;
-            }
-        }
-        catch (Exception)
-        {
-            throw;
-            // Handle exceptions as appropriate
-        }
     }
 
     private void MuteStatusPollingTimer_Tick(object sender, object e)
@@ -122,7 +111,6 @@ public sealed partial class MainWindow : Window
             }
         }
     }
-
 
     private async void InputDeviceComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
